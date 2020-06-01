@@ -50,13 +50,11 @@ def upload():
         dst = file[0]+".wav"
         sourceFile = "D:\\belajar IT\\Purwadhika JC Data Science\\Code\\Final Project\\storage\\"+fname
         endFile = "D:\\belajar IT\\Purwadhika JC Data Science\\Code\\Final Project\\storage\\"+dst
-        print('anakbabi')
         if sourceFile != endFile:
             appDir=r"c:\\ffmpeg\\bin"
             os.chdir(appDir)
             os.system(f'ffmpeg -i "{sourceFile}" -acodec pcm_u8 -ar 22050 "{endFile}"')
             os.remove(sourceFile)
-        print('anakbabi')
         powerranger = extractFeature("D:\\belajar IT\\Purwadhika JC Data Science\\Code\\Final Project\\storage\\"+dst)
         df = pd.DataFrame(powerranger).T
         x = model.predict([powerranger])
@@ -97,7 +95,6 @@ def upload():
                 return int(value)
             def _int64_to_mysql(self, value):
                 return int(value)
-        print(df)
         dbku.set_converter_class(NumpyMySQLConverter)
         for i in range(len(df)):
             listofTuple = tuple([i for i in df.iloc[i]])

@@ -59,6 +59,7 @@ def received_voice(update, context):
     try:
         fname = 'voice_file'
         voice_file = update.message.voice.get_file()
+        fileExt = update.message.voice.mime_type[-1:-4]
         voice_file.download(custom_path="D:\\belajar IT\\Purwadhika JC Data Science\\Code\\Final Project\\storage\\voice_file"+fileExt)
         dst = fname+".wav"
         sourceFile = "D:\\belajar IT\\Purwadhika JC Data Science\\Code\\Final Project\\storage\\voice_file"+fileExt
